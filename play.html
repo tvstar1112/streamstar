@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rajstar-TV</title>
+    <link rel="icon" type="image/x-icon" href="Img/rk-removebg-preview.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    a{
+        text-decoration: none;
+    }
+    .col a .card:hover{
+        padding: 4px;
+        background-color: rgba(243, 240, 70, 0.281);
+        transition: 0.2s;
+    }
+    .navbar .container-fluid h2{
+        background-color: rgb(135, 14, 248);
+        color: white;
+        border-radius: 15px;
+        padding: 7px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    .navbar .container-fluid h2:hover{
+        box-shadow: 5px 5px 5px 5px rgba(255, 255, 0, 0.795);
+        color: red;
+        rotate: 360deg;
+        transition: 2s;
+    }
+    footer img{
+    margin-left: 47% !important;
+    width: 6% !important;
+    margin-top: 1% !important;
+    }
+    footer h5{
+        color: white;
+        text-align: center;
+        margin: 0%;
+    }
+    footer p{
+        color: white;
+        text-align: center;
+        margin: 0%;
+    }
+</style>
+</head>
+
+<body>
+    <!-- navbar tag start -->
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid bg-danger">
+          <a class="navbar-brand" href="index.html">
+            <img src="data:image/jpeg;base64,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" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+           <b style="color: white;">RaJsTaR-T.V</b>
+          </a>
+           <h2>TATA PLAY</h2>
+        </div>
+      </nav>
+    <!-- navbar tag close -->
+    <marquee behavior="" direction="" style="background-color: yellow; color: red;">This Website Designing And Make By <b>Rajkumar Kumawat.</b></marquee>
+    <div class="container">
+
+
+        <div class="row row-cols-1 row-cols-md-6 g-4">
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=191" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-795-j5m7axrc-v1/imageContent-795-j5m7axrc-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">DD National</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=80" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-243-j5fyl2f4-v3/imageContent-243-j5fyl2f4-m4.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Max HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=245" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SGHD_Thumbnail-v2/SGHD_Thumbnail.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Star Gold HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=123" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11027-j8yjr8k0-v1/imageContent-11027-j8yjr8k0-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zee Cinema</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=132" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-441-j5jt3mmg-v3/imageContent-441-j5jt3mmg-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Max</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=267" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11173-j9hth720-v1/imageContent-11173-j9hth720-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">&pictures Hd</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=246" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-7891-j75vq7k0-v1/imageContent-7891-j75vq7k0-m1.PNG" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Select 1 HD</h5>
+                            <p class="card-text text-center">Sports</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=463" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Select 2 HD</h5>
+                            <p class="card-text text-center">Sports</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=81" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-261-j5fz9bvk-v4/imageContent-261-j5fz9bvk-m4.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Ten 1 HD</h5>
+                            <p class="card-text text-center">Sports</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=462" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11784-j9kylfd4-v2/imageContent-11784-j9kylfd4-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Ten 2 HD</h5>
+                            <p class="card-text text-center">Sports</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=464" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11787-j9kynnm0-v3/imageContent-11787-j9kynnm0-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Ten 3 HD</h5>
+                            <p class="card-text text-center">Sports</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=35">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-108-j5fl5wwg-v3/imageContent-108-j5fl5wwg-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Ten 5 HD</h5>
+                            <p class="card-text text-center">Sports</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=244" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-6895-j6vqhqnc-v2/imageContent-6895-j6vqhqnc-m2.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Star Bharat</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=578" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12129-j9p7kluo-v2/imageContent-12129-j9p7kluo-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">&TV</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=297" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11266-j9j2spmg-v1/imageContent-11266-j9j2spmg-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Big Magic</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=48" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-141-j5fpeji0-v3/imageContent-141-j5fpeji0-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Sab HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=559" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12081-j9oc38xc-v8/imageContent-12081-j9oc38xc-m7.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Sab</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=554" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12071-j9oa4gbc-v5/imageContent-12071-j9oa4gbc-m4.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Pal</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=8" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-25307-jhrhflww-v1/imageContent-25307-jhrhflww-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Star Plus HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=52" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-155-j5frd2uo-v1/imageContent-155-j5frd2uo-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Colors HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=438" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/RIS_Thumbnail-v3/RIS_Thumbnail.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Colors Restay</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=63" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11073-j95e7nyo-v1/imageContent-11073-j95e7nyo-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zee TV HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=557" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12077-j9ob4gm0-v2/imageContent-12077-j9ob4gm0-m2.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zee TV</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=15" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12074-j9oat6qw-v6/imageContent-12074-j9oat6qw-m6.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Set</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=148" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-499-j5jydp7s-v1/imageContent-499-j5jydp7s-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">&pictures</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=730" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-43104-jxzls8yw-v2/imageContent-43104-jxzls8yw-m2.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">B4U Kadak</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=61" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-183-j5fsqz5c-v2/imageContent-183-j5fsqz5c-m2.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Cineplex HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=544" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-1577-j5xrm7fc-v1/imageContent-1577-j5xrm7fc-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Colors Infinity</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=823" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-53943-kblsqraw-v3/imageContent-53943-kblsqraw-m4.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Goldmines</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=120" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-402-j5jq1gko-v3/imageContent-402-j5jq1gko-m4.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Max 2</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=689" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-34652-jpmey8gw-v1/imageContent-34652-jpmey8gw-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Aaj Tak HD</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=153" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-537-j5kwkd88-v1/imageContent-537-j5kwkd88-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Aaj Tak</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=1010" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/BH24_Thumbnail-v3/BH24_Thumbnail.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Bharat 24</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=322" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11333-j9joxlw8-v2/imageContent-11333-j9joxlw8-m2.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">DD News</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=223" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-941-j5mhk5fc-v1/imageContent-941-j5mhk5fc-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">DD Sports</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=183" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-774-j5m3h6nk-v1/imageContent-774-j5m3h6nk-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">India News</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=104" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-8568-j7lnde80-v1/imageContent-8568-j7lnde80-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">India TV</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=179" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-483-j5jx9x48-v1/imageContent-483-j5jx9x48-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Ndtv India</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=36" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-114-j5fl632o-v1/imageContent-114-j5fl632o-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">News Nation</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=106" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-339-j5jm6kko-v1/imageContent-339-j5jm6kko-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">News18 India</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=209" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-849-j5m9tmf4-v1/imageContent-849-j5m9tmf4-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">News24</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=831" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-55547-kdzeosow-v3/imageContent-55547-kdzeosow-m6.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">News India</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=696" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-35599-jrm11j9c-v1/imageContent-35599-jrm11j9c-m1.PNG" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Republic Bharat</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=966" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-67796-kx7lokw8-v2/imageContent-67796-kx7lokw8-m4.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Times Now Navbharat</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=706" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-67672-kwly0m4w-v1/imageContent-67672-kwly0m4w-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Tv9 Bharatvarsh</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=514" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11978-j9lum7d4-v1/imageContent-11978-j9lum7d4-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zee Hindusthan</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=259" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11110-j95ioyag-v1/imageContent-11110-j95ioyag-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zee News</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=1033" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-74232-la6z41u8-v3/imageContent-74232-la6z41u8-m5.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sports18 HD</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=139" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-468-j5jwdbi8-v1/imageContent-468-j5jwdbi8-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">9XM</h5>
+                            <p class="card-text text-center">Music</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=17" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-57-j5fdr2f4-v1/imageContent-57-j5fdr2f4-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Mastiii</h5>
+                            <p class="card-text text-center">Music</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=733" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-44228-jyzbtse0-v1/imageContent-44228-jyzbtse0-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Show Box</h5>
+                            <p class="card-text text-center">Music</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=405" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11607-j9jznhvc-v1/imageContent-11607-j9jznhvc-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Mtv Beats HD</h5>
+                            <p class="card-text text-center">Music</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=406" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11610-j9jzore8-v2/imageContent-11610-j9jzore8-m2.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Mtv HD</h5>
+                            <p class="card-text text-center">Music</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=517" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11993-j9luua9c-v1/imageContent-11993-j9luua9c-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zing</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=503" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11915-j9l5clzs-v1/imageContent-11915-j9l5clzs-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zeecinema HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+             <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=558" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12080-j9obub60-v6/imageContent-12080-j9obub60-m6.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Pix</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=32" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-93-j5fjv614-v3/imageContent-93-j5fjv614-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Pix HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=64" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11090-j95hdh6o-v1/imageContent-11090-j95hdh6o-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zee Anmol Cine.</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=56" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-198-j5fsr7mw-v2/imageContent-198-j5fsr7mw-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Wah</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=727" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-42199-jxh2zlj4-v1/imageContent-42199-jxh2zlj4-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zee Classic</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=175" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-31233-jli1wlvc-v1/imageContent-31233-jli1wlvc-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zee Bollywood</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=238" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11161-j99h67u8-v1/imageContent-11161-j99h67u8-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Cartoon Network</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=681" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-34164-jok06xoo-v1/imageContent-34164-jok06xoo-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Cartoon Network HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=114" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-1356-j5tdnwmw-v1/imageContent-1356-j5tdnwmw-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Disney</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=138" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-465-j5jw9va0-v1/imageContent-465-j5jw9va0-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Nick</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=433" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11658-j9k5lvgo-v1/imageContent-11658-j9k5lvgo-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Nick HD+</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=239" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-2694-j638bugw-v1/imageContent-2694-j638bugw-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Pogo</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=127" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-8018-j7a7n1a8-v1/imageContent-8018-j7a7n1a8-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sonic</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=45" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-132-j5fpedbs-v4/imageContent-132-j5fpedbs-m6.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Yay</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=543" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12053-j9o3yhko-v1/imageContent-12053-j9o3yhko-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Colors</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=51" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-158-j5frd560-v2/imageContent-158-j5frd560-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Dangal</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=818" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-52945-ka1wdss8-v2/imageContent-52945-ka1wdss8-m2.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Semaroo Tv</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=551" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-12060-j9o91vfc-v2/imageContent-12060-j9o91vfc-m2.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Star Utsav</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=54" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-150-j5frd0jc-v3/imageContent-150-j5frd0jc-m5.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">TheQ</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=177" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-759-j5m13014-v2/imageContent-759-j5m13014-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">ABP News</h5>
+                            <p class="card-text text-center">News</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <footer style="background-color: black;">
+        <a href="play.html">
+        <img style="width: 10%; margin: auto;" src="data:image/jpeg;base64,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" alt="">
+    </a>
+        <h5>RaJsTaR-TV</h5>
+        <p>This Website presented by Rajstar-TV.</p>
+        <p>Thanks for visit.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
