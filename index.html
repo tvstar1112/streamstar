@@ -1,0 +1,667 @@
+<html>
+
+<head>
+    <title>Rajstar-TV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Img/rk-removebg-preview.png">
+    <link rel="stylesheet" href="Css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <style>
+            body {
+    background-color: #444 !important;
+}
+
+/* navbar css start */
+.navbarr {
+    background-color: black;
+    padding: 8px 35px 12px 0px;
+}
+
+.navbarr nav ul {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.navbarr nav ul li {
+    list-style: none;
+    color: white;
+}
+
+/* navbar css close */
+.controls {
+    width: 42px;
+    height: 42px;
+    padding: 10px;
+    border-radius: 0;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.controls img {
+    width: 100%;
+    /* Ajustar el ancho de las imágenes al 100% del contenedor */
+    height: auto;
+    /* Ajustar la altura automáticamente */
+}
+
+/* .left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin-left: -50px;
+} */
+.left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin-left: -18px;
+    background-color: rgba(240, 248, 255, 0.24);
+}
+.leftnav a{
+    text-decoration: none;
+}
+.right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    margin-right: -70px;
+    background-color: aliceblue;
+    background-color: rgba(240, 248, 255, 0.24);
+}
+
+.carrousel {
+    width: 1100px;
+    margin: auto;
+    height: 299px;
+    /* margin-top: 120px; */
+    overflow: hidden;
+}
+
+.controls:hover {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.item {
+    width: 270px;
+    height: 251px;
+    float: left;
+    margin-left: 15px;
+    margin-top: 20px;
+    background-color: #202225;
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 1s all;
+    /* box-shadow: 0 9px 10px rgba(6,6,7,.3); */
+}
+
+/* .cont {
+    position: absolute;
+    width: 1100px;
+    margin-top: 190px;
+} */
+.cont {
+    position: absolute;
+    width: 1051px;
+    margin-top: 190px;
+}
+
+.tapa {
+    width: 12000px;
+    /* 	change if the size is >     12000  :) */
+    transition: .9s all;
+}
+
+.item img {
+    width: 100%;
+    /* Ajustar el ancho de las imágenes al 100% del contenedor */
+    height: 100%;
+    /* Ajustar la altura automáticamente para mantener la proporción */
+    margin: 0;
+    /* Eliminar cualquier margen por defecto */
+    display: block;
+    /* Cambiar a "block" para ajustar el ancho y el margen automáticamente */
+    position: auto;
+    top: 50%;
+    left: 0;
+}
+
+.item:hover {
+    margin-top: -6px;
+}
+
+/* Side-nav start */
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111111d2;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+/* side-nav close */
+.all {
+    display: flex;
+}
+
+.leftnav {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    width: 15%;
+}
+.img{
+    width: 95%;
+  }
+  .img:hover{
+    padding: 10px;
+    transition: 0.5s;
+  }
+  .img img{
+    width: 100%;
+    padding: 10px;
+  }
+  .leftnav a h5{
+    background-color: red;
+    color: white;
+    width: 60%;
+    padding: 5px;
+    text-align: center;
+    margin-left: 30px;
+  }
+  .leftnav a h5:hover{
+    transition: 0.8s;
+    background-color: #111;
+    color: red;
+  }
+  footer img{
+    margin-left: 47% !important;
+    width: 6% !important;
+    margin-top: 1% !important;
+    }
+    footer img:hover{
+        padding: 10px;
+        transition: 0.5s;
+    }
+    footer h5{
+        color: white;
+        text-align: center;
+        margin: 0%;
+    }
+    footer p{
+        color: white;
+        text-align: center;
+        margin: 0%;
+    }
+    .row{
+        padding: 10px;
+    }
+    .row a{
+        text-decoration: none;
+    }
+    .row img:hover{
+       padding: 20px;
+    }
+    .togle{
+        display: none;
+    }
+  
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+    body {
+        background-color: rgb(49, 49, 49) !important;
+    }
+    .cont {
+        position: absolute;
+        width: 272px;
+        margin-top: 190px;
+    }
+    .left {
+        position: absolute;
+        top: -105px;
+        left: -16px;
+        transform: translateY(-50%);
+        margin-left: -18px;
+        background-color: rgba(240, 248, 255, 0.24);
+    }
+    .right {
+        position: absolute;
+        top: -105px;
+        right: -40px;
+        transform: translateY(-50%);
+        margin-right: unset;
+        background-color: aliceblue;
+        background-color: rgba(240, 248, 255, 0.24);
+    }
+    .item {
+        width: 78px;
+        height: 114px;
+        float: left;
+        margin-left: 12px;
+        margin-top: 20px;
+        background-color: #202225;
+        color: #fff;
+        font-size: 40px;
+        text-align: center;
+        padding-top: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 1s all;
+        box-shadow: unset;
+    }
+    .carrousel {
+        width: 268px;
+        margin: auto;
+        height: 160px;
+        margin-top: unset;
+        overflow: hidden;
+        margin-left: 31px;
+    }
+    .leftnav{
+        display: none;
+    }
+    .togle{
+        display: block;
+    }
+}
+        </style>
+</head>
+
+<body>
+    <!-- home navbar start -->
+    <div class="navbarr">
+        <nav>
+            <ul>
+                <li class="togle">
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <div class="img">
+                            <a href="">
+                                <img src="data:image/jpeg;base64,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" alt="">
+                            </a>
+                        </div>
+                        <a href="play.html">
+                            <h5><i class="fa-solid fa-tv"></i> Live T.V</h5>
+                        </a>
+                        <a href="https://livesportsclub.pages.dev/starsportshindi">
+                            <h5><i class="fa-solid fa-baseball-bat-ball"></i> Live Sport</h5>
+                        </a>
+                        <a href="">
+                            <h5><i class="fa-solid fa-eject"></i> About Us</h5>
+                        </a>
+                    </div>
+                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+                </li>
+                <li>RaJsTaR</li>
+                <li>Home</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+
+    <!-- home navbar close -->
+    <div class="all">
+        <div class="leftnav">
+            <div class="img">
+                <a href="">
+                    <img src="data:image/jpeg;base64,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" alt="">
+                </a>
+            </div>
+            <a href="play.html">
+                <h5><i class="fa-solid fa-tv"></i> Live T.V</h5>
+            </a>
+            <a href="https://livesportsclub.pages.dev/starsportshindi">
+                <h5><i class="fa-solid fa-baseball-bat-ball"></i> Live Sport</h5>
+            </a>
+            <a href="">
+                <h5><i class="fa-solid fa-eject"></i> About Us</h5>
+            </a>
+        </div>
+        <!-- home side nav start -->
+
+        <!-- home side nav close -->
+        <!-- side nav start -->
+        <!-- <div class="sidemenu">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
+
+
+
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+     </div> -->
+
+        <!-- side nav close -->
+        <!-- <div class="wcc">
+            <img src="Img/ICC-CRICKET-WORLD-CUP-2023.webp" alt="">
+        </div> -->
+        <div class="movie">
+            <div class="carrousel">
+                <div class="tapa" id="move">
+                    <a href="play.html" target="_blank">
+                        <div class="item"><img src="https://etimg.etb2bimg.com/photo/89134438.cms"></div>
+                    </a>
+                    <a href="https://rogstream.fun/hls/tata/" target="_blank">
+                        <div class="item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiEx4rGKGWWEzFefHpShlrWlOVj1-vi_bC74vY9Awwk9XLxUZqNHWzdoho&s=10"></div>
+                    </a>
+                    <a href="#">
+                        <div class="item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5RZES5JwGDVv9EIcn5eBeRlvwYpQIpr_QVQ&usqp=CAU"></div>
+                    </a>
+                    <a href="#">
+                        <div class="item"><img src="https://v3img.voot.com/v3Storage/assets/web_voot_logo-1630676921806.png"></div>
+                    </a>
+                    <a href="#">
+                        <div class="item"><img src="https://us1-prod-images.disco-api.com/2021/1/4/31ca7f0b-f57f-4254-b84e-b1c2bab210a6.png"></div>
+                    </a>
+                    <a href="#">
+                        <div class="item"><img src="https://www.indiantvinfo.com/media/2017/06/sun-nxt-app-download.jpg"></div>
+                    </a>
+                    <!-- <div class="item"><img src="https://etimg.etb2bimg.com/photo/89134438.cms"></div>
+                    <div class="item"><img src="https://etimg.etb2bimg.com/photo/89134438.cms"></div>
+                    <div class="item"><img src="https://etimg.etb2bimg.com/photo/89134438.cms"></div>
+                    <div class="item"><img src="https://etimg.etb2bimg.com/photo/89134438.cms"></div> -->
+                    <!-- Otras imágenes aquí -->
+                </div>
+                <!-- Controles -->
+                <div class="cont">
+                    <div class="left controls" id="l"><img
+                            src="https://cdn2.iconfinder.com/data/icons/electronic-line-3/64/back_Arrow_chevron_left_ui_interface_icon-512.png">
+                    </div>
+                    <div class="right controls" id="r"><img
+                            src="https://cdn1.iconfinder.com/data/icons/mixed-17/16/icon_right_rounded-512.png"></div>
+                </div>
+            </div>
+            <div class="carrousel">
+                <div class="tapa" id="move-1">
+                    <a href="https://livesportsclub.pages.dev/starsportshindi" target="_blank">
+                        <div class="item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJoT6KG6eBptaylavkK4RGqOxp52EjQWpNaw&usqp=CAU"></div>
+                    </a>
+                    <a href="https://livesportsclub.pages.dev/starsportshindi" target="_blank">
+                        <div class="item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJoT6KG6eBptaylavkK4RGqOxp52EjQWpNaw&usqp=CAU"></div>
+                    </a>
+                    <a href="https://livesportsclub.pages.dev/starsportshindi" target="_blank">
+                        <div class="item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJoT6KG6eBptaylavkK4RGqOxp52EjQWpNaw&usqp=CAU"></div>
+                    </a>
+                    <div class="item"><img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-25307-jhrhflww-v1/imageContent-25307-jhrhflww-m1.png"></div>
+                    <div class="item"><img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-141-j5fpeji0-v3/imageContent-141-j5fpeji0-m3.png"></div>
+                    <div class="item"><img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SGHD_Thumbnail-v2/SGHD_Thumbnail.png"></div>
+                    <!-- Otras imágenes aquí -->
+                </div>
+                <!-- Controles -->
+                <div class="cont">
+                    <div class="left controls" id="l-1"><img
+                            src="https://cdn2.iconfinder.com/data/icons/electronic-line-3/64/back_Arrow_chevron_left_ui_interface_icon-512.png">
+                    </div>
+                    <div class="right controls" id="r-1"><img
+                            src="https://cdn1.iconfinder.com/data/icons/mixed-17/16/icon_right_rounded-512.png"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blk">
+        <p>This website make and designing by rajkumar</p>
+    </div>
+    <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-md-6 g-4">
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=245" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/SGHD_Thumbnail-v2/SGHD_Thumbnail.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Star Gold HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=80" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-243-j5fyl2f4-v3/imageContent-243-j5fyl2f4-m4.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Max HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=503" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11915-j9l5clzs-v1/imageContent-11915-j9l5clzs-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zeecinema HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=48" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-141-j5fpeji0-v3/imageContent-141-j5fpeji0-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Sab HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=464" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11787-j9kynnm0-v3/imageContent-11787-j9kynnm0-m3.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Ten 3 HD</h5>
+                            <p class="card-text text-center">Sports</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=463" target="_blank">
+                    <div class="card h-100">
+                        <img src="https://ltsk-cdn.s3.eu-west-1.amazonaws.com/jumpstart/Temp_Live/cdn/HLS/Channel/imageContent-11791-j9kyqpy8-v1/imageContent-11791-j9kyqpy8-m1.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Select 2 HD</h5>
+                            <p class="card-text text-center">Sports</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- ### movies start -->
+
+    <!-- <div class="container-fluid">
+                <h2>Movies section </h2>
+                <div class="row row-cols-1 row-cols-md-6 g-4">
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=245" target="_blank">
+                    <div class="card h-100">
+                        <img src="Img/tata/Stargoldhd.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Star Gold HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=80" target="_blank">
+                    <div class="card h-100">
+                        <img src="Img/tata/sonymaxhd.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Max HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=503" target="_blank">
+                    <div class="card h-100">
+                        <img src="Img/tata/Zeesinemahd.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Zeecinema HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=48" target="_blank">
+                    <div class="card h-100">
+                        <img src="Img/tata/sonysabhd.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Sab HD</h5>
+                            <p class="card-text text-center">Entertainment</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=464" target="_blank">
+                    <div class="card h-100">
+                        <img src="img/tata/sonyten3hd.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sony Ten 3 HD</h5>
+                            <p class="card-text text-center">Sports</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="https://rogstream.fun/hls/tata/play.php?id=463" target="_blank">
+                    <div class="card h-100">
+                        <img src="img/tata/starsportsselect2hd.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Select 2 HD</h5>
+                            <p class="card-text text-center">Sports</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div> -->
+    <!-- #### movies end -->
+
+    <footer style="background-color: black;">
+        <a href="index.html">
+            <img style="width: 10%; margin: auto;" src="Img/rk-removebg-preview.png" alt="">
+        </a>
+        <h5>RaJsTaR-TV</h5>
+        <p>This Website presented by Rajstar-TV.</p>
+        <p>Thanks for visit.</p>
+    </footer>
+    <script>
+        let x = 0;
+        let p = -10;
+        let i = 1;
+        let doom = document.getElementsByClassName('item');
+        let confr = (doom.length - 3) * (-80);
+        let confl = 0;
+
+        // Botón izquierdo
+        document.getElementById("l").addEventListener("click", function () {
+            x += 350;
+            if (x > confl) {
+                x = confr - 350;
+            } else {
+                document.getElementById("move").style.marginLeft = x + "px";
+            }
+        });
+
+        // Botón derecho
+        document.getElementById("r").addEventListener("click", function () {
+            x += -350;
+            p += -10;
+            if (x < confr) {
+                x = 350;
+            } else {
+                document.getElementById("move").style.marginLeft = x + "px";
+            }
+        });
+
+        // Botón izquierdo
+        document.getElementById("l-1").addEventListener("click", function () {
+            x += 300;
+            if (x > confl) {
+                x = confr - 300;
+            } else {
+                document.getElementById("move-1").style.marginLeft = x + "px";
+            }
+        });
+
+        // Botón derecho
+        document.getElementById("r-1").addEventListener("click", function () {
+            x += -300;
+            p += -2;
+            if (x < confr) {
+                x = 300;
+            } else {
+                document.getElementById("move-1").style.marginLeft = x + "px";
+            }
+        });
+        // side nav start
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+        // side nav close
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
